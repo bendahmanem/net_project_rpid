@@ -1,0 +1,53 @@
+@model MailViewModel
+
+<main class="container flex-grow-1">
+    <div class="contact-container">
+
+
+        <h2 class="text-center mb-4">Contactez le support</h2>
+        <form asp-action="Contact" asp-controller="Dashboard" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="Nom" class="form-label">Nom</label>
+                        <input asp-for="Nom" class="form-control" placeholder="Votre nom" />
+                        <span asp-validation-for="Nom" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="Prenom" class="form-label">Prénom</label>
+                        <input asp-for="Prenom" class="form-control" placeholder="Votre prénom" />
+                        <span asp-validation-for="Prenom" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="email" class="form-label">Email</label>
+                        <input asp-for="email" class="form-control" placeholder="votre@email.com" />
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="telephone" class="form-label">Téléphone</label>
+                        <input asp-for="telephone" class="form-control" placeholder="Votre numéro" />
+                        <span asp-validation-for="telephone" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label asp-for="message" class="form-label">Message</label>
+                <textarea asp-for="message" class="form-control" placeholder="Écrivez votre message ici..."></textarea>
+                <span asp-validation-for="message" class="text-danger"></span>
+            </div>
+            <div class="d-flex gap-2 justify-content-end">
+                <a asp-action="Index" asp-controller="Dashboard" class="btn btn-outline-secondary">Annuler</a>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</main>

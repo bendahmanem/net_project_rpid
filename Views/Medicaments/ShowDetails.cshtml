@@ -1,0 +1,51 @@
+﻿@model MedicamentEditViewModel
+
+<h2 class="text-center">Detail du Médicament</h2>
+
+<div class="form-group">
+    <label asp-for="Medicament.Libelle_med" class="control-label">Nom du Medicament</label>
+    <input asp-for="Medicament.Libelle_med" class="form-control" readonly />
+    <span asp-validation-for="Medicament.Libelle_med" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Medicament.Contr_indication" class="control-label">Contre indication</label>
+    <input asp-for="Medicament.Contr_indication" class="form-control" readonly />
+    <span asp-validation-for="Medicament.Contr_indication" class="text-danger"></span>
+</div>
+<br><br>
+
+<h4 class="text-center">Incomptabilité Allergies</h3>
+    <div class="form-group">
+        <ul>
+            @if (Model.Allergies != null && Model.Allergies.Any())
+            {
+                @foreach (var allergie in Model.Allergies)
+                {
+                    <li>@allergie.Libelle_al</li>
+                }
+            }
+            else
+            {
+                <p class="text-muted">Ce medicament n'a pas d'allergie.</p>
+            }
+        </ul>
+    </div>
+    <br><br>
+    <h4 class="text-center">Incomptabilité Antecedents</h3>
+        <div class="form-group">
+            <ul> @if (Model.Antecedents != null && Model.Antecedents.Any())
+                {
+                    @foreach (var antecedent in Model.Antecedents)
+                    {
+                        <li>@antecedent.Libelle_a</li>
+                    }
+                }
+                else
+                {
+                    <p class="text-muted">Ce medicament n'a pas d'antécédents.</p>
+                }
+            </ul>
+        </div>
+        <div>
+            <a asp-action="Index" class="btn btn-secondary">Retour à la liste</a>
+        </div>

@@ -1,0 +1,50 @@
+﻿@model MedicamentEditViewModel
+
+@{
+    ViewData["Title"] = "Ajouter un Médicament";
+}
+
+<h2 class="text-center">Ajouter un Médicament</h2>
+<br>
+
+<form asp-action="Add" asp-controller="MedicamentS" method="post">
+
+    <div class="form-group">
+        <label asp-for="Medicament.Libelle_med">nom du médicament</label> <input asp-for="Medicament.Libelle_med" class="form-control" />
+        <span asp-validation-for="Medicament.Libelle_med" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Medicament.Contr_indication">Contre indication</label> <input asp-for="Medicament.Contr_indication"
+            class="form-control" />
+        <span asp-validation-for="Medicament.Contr_indication" class="text-danger"></span>
+    </div>
+
+    <br><br>
+    <div class="form-group">
+        <h2 class="text-center">Incomptabilité Allergies</h2>
+        @foreach (var allergie in Model.Allergies)
+        {
+            <div class="form-check">
+                <input type="checkbox" name="selectedAllergies" value="@allergie.AllergieId" />
+                <label>@allergie.Libelle_al</label>
+            </div>
+        }
+    </div>
+    <br><br>
+    <div class="form-group">
+        <h2 class="text-center">Incomptabilité Antécédents</h2>
+        @foreach (var antecedent in Model.Antecedents)
+        {
+            <div class="form-check">
+                <input type="checkbox" name="selectedAntecedents" value="@antecedent.AntecedentId" />
+                <label>@antecedent.Libelle_a</label>
+            </div>
+        }
+    </div>
+    <br><br>
+
+
+<input type="submit" value="Valider" class="btn btn-primary" />
+<a asp-action="Index" class="btn btn-secondary">Retour à la liste</a>
+</form>

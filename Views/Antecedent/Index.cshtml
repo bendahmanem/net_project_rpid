@@ -1,0 +1,41 @@
+﻿@using System.Collections
+
+@model IEnumerable<Antecedent>
+<br>
+<h1 class="text-center ">Liste des Antécédents</h1>
+<br>
+@if (Model.Count() > 0)
+{
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nom de l'antécédent</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var antecedent in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => antecedent.Libelle_a)</td>
+                        <td><a asp-action="Edit" asp-route-id="@antecedent.AntecedentId" class="btn btn-warning">Modifier</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="col-1"></div>
+
+    </div>
+    <br>
+    <a asp-controller="Dashboard" asp-action="Index" class="btn btn-secondary">Retour</a>
+    <a asp-action="Add" id="accueil" class="btn btn-primary">Ajouter un nouvel antécédent</a>
+}
+else
+{
+    <p>Il n'y a pas d'antécédent</p>
+    <a asp-controller="Dashboard" asp-action="Index" class="btn btn-secondary">Retour</a>
+    <a asp-action="Add" id="accueil" class="btn btn-primary">Ajouter un nouvel antécédent</a>
+
+}

@@ -1,0 +1,6 @@
+public class MedicamentViewModel
+{
+    public string Nom { get; set; }
+    public List<int> SelectedAllergies { get; set; }
+    public List<int> SelectedAntecedents { get; set; }
+}

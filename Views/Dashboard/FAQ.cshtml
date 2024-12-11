@@ -1,0 +1,140 @@
+@{
+
+    ViewData["Title"] = "FAQ - Med Manager";
+
+}
+
+<div class="faq-container">
+    <h1 class="text-center mb-4">Foire Aux Questions</h1>
+
+    <div class="accordion" id="faqAccordion">
+        <!-- Général -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#general">
+
+                    Questions Générales
+                </button>
+            </h2>
+            <div id="general" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    <div class="faq-item">
+                        <h3>Comment puis-je créer une ordonnance pour un nouveau patient ?</h3>
+                        <p>Pour créer une ordonnance pour un nouveau patient :</p>
+                        <ol>
+                            <li>Ajoutez d'abord le patient dans la section "Patients"</li>
+                            <li>Accédez ensuite à "Ordonnances" puis "Nouvelle ordonnance"</li>
+                            <li>Sélectionnez le patient dans la liste déroulante</li>
+                            <li>Remplissez les informations nécessaires</li>
+                        </ol>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Est-ce que je peux modifier une ordonnance après l'avoir créée ?</h3>
+                        <p>Oui, vous pouvez modifier une ordonnance tant qu'elle n'a pas été exportée en PDF. Une fois
+
+                            exportée, il est recommandé de créer une nouvelle ordonnance pour garder une trace claire
+
+                            des modifications.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Comment gérer les allergies d'un patient ?</h3>
+                        <p>Le système vérifie automatiquement les interactions entre les allergies du patient et les
+
+                            médicaments prescrits. Un avertissement apparaîtra si un médicament présente un risque. Vous
+
+                            pouvez gérer les allergies d'un patient dans son profil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sécurité -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#securite">
+
+                    Sécurité et Confidentialité
+                </button>
+            </h2>
+            <div id="securite" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    <div class="faq-item">
+                        <h3>Mes données sont-elles sécurisées ?</h3>
+                        <p>Oui, Med Manager utilise un système de cryptage avancé pour protéger toutes les données
+
+                            médicales. Les informations sont stockées de manière sécurisée et conformément au RGPD.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Qui peut accéder aux données de mes patients ?</h3>
+                        <p>Seuls vous et les médecins autorisés peuvent accéder aux données de
+
+                            vos patients. Chaque accès est tracé et enregistré pour des raisons de sécurité.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Médicaments -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#medicaments">
+
+                    Médicaments et Prescriptions
+                </button>
+            </h2>
+            <div id="medicaments" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    <div class="faq-item">
+                        <h3>Comment le système gère-t-il les interactions médicamenteuses ?</h3>
+                        <p>Le système vérifie automatiquement les interactions entre les médicaments prescrits ainsi
+
+                            qu'avec les allergies et antécédents du patient. Des alertes apparaissent en cas de risque
+
+                            potentiel.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Comment ajouter un nouveau médicament à la base de données ?</h3>
+                        <p>Les médecins peuvent eux-mêmes ajouter de nouveaux médicaments à la base de données.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#support">
+
+                    Support et Aide
+                </button>
+            </h2>
+            <div id="support" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    <div class="faq-item">
+                        <h3>Comment contacter le support technique ?</h3>
+                        <p>Vous pouvez contacter le support technique via :</p>
+                        <ul>
+                            <li>Le formulaire de contact dans l'application</li>
+                        </ul>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Y a-t-il des formations disponibles ?</h3>
+                        <p>Non, il n'y a pas de formations. Cependant, dans le
+
+                            footer de l'application, vous pourrez retrouver un guide d'utilisation qui peut faire
+
+                            office de support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

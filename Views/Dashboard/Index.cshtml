@@ -1,0 +1,78 @@
+﻿<body class="m-0 border-0">
+    @{
+        var successMessage = TempData["SuccessMessage"] as string;
+    }
+
+    <!-- Affichage du message de succès -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <div class="d-flex justify-content-center gap-5 mt-5">
+        <!-- Première carte -->
+        <div class="card" style="width: 18rem;">
+            <a asp-action="Index" asp-controller="Medicaments">
+                <img src="~/images/medicaments_1-e80263cb.jpeg" class="card-img-top" alt="Médicaments"
+                    style="width:100%; height:180px;">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Cliquez sur l'image ci-dessus pour vous rendre sur la liste des Médicaments</p>
+            </div>
+        </div>
+
+        <!-- Deuxième carte -->
+        <div class="card" style="width: 18rem;">
+            <a asp-action="Index" asp-controller="Patient">
+                <img src="~/images/patient.jpg" class="card-img-top" alt="Patients" style="width:100%; height:180px;">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Cliquez sur l'image ci-dessus pour vous rendre sur la liste des Patients</p>
+            </div>
+        </div>
+        <!-- Troisième carte -->
+        <div class="card" style="width: 18rem;">
+            <a asp-action="Index" asp-controller="Ordonnance">
+                <img src="~/images/imgOrdonnance.jpg" class="card-img-top" alt="Ordonnances"
+                    style="width:100%; height:180px;">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Cliquez sur l'image ci-dessus pour vous rendre sur la liste des Ordonnances</p>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center gap-5 mt-5">
+
+        <!-- Quatrième carte -->
+        <div class="card" style="width: 18rem;">
+            <a asp-action="Index" asp-controller="Antecedent">
+                <img src="~/images/antcancer.png" class="card-img-top" alt="antcancer"
+                    style="width:100%; height:180px;">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Cliquez sur l'image ci-dessus pour vous rendre sur la liste des Antécédents</p>
+            </div>
+        </div>
+        <!-- Cinquième carte -->
+        <div class="card" style="width: 18rem;">
+            <a asp-action="Index" asp-controller="Allergie">
+                <img src="~/images/allergie.jpg" class="card-img-top" alt="Allergie" style="width:100%; height:180px;">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Cliquez sur l'image ci-dessus pour vous rendre sur la liste des Allergies</p>
+            </div>
+        </div>
+        <!-- Sixième carte -->
+        <div class="card" style="width: 18rem;">
+            <a asp-action="Index" asp-controller="Statistique">
+                <img src="~/images/stat.png" class="card-img-top" alt="Statistique" style="width:100%; height:180px;">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Cliquez sur l'image ci-dessus pour vous rendre sur la liste des Statistiques</p>
+            </div>
+        </div>
+    </div>
+
+</body>

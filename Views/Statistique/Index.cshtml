@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.title = "Statistiques";
+}
+@model IEnumerable<Medicament>
+<br>
+<h1 class="text-center">Statistiques des médicaments</h1>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        @if (Model.Any(m => m.compteur > 0))
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Médicament</th>
+                        <th>Nombre de prescriptions</th>
+                        <th>Pourcentage</th>
+                        <th>Représentation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var total = Model.Sum(m => m.compteur);
+                    }
+                    @foreach (var medicament in Model.OrderByDescending(m => m.compteur))
+                    {
+                        var pourcentage = total > 0 ? (medicament.compteur * 100) / total : 0;
+                        <tr>
+                            <td>@medicament.Libelle_med</td>
+                            <td>@medicament.compteur</td>
+                            <td>@pourcentage%</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: @pourcentage%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Aucun médicament n'a été prescrit.</p>
+        }
+    </div>
+</div>
+<br>
+<h2 class="text-center">Ordonnances en cours</h2>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        @if (ViewBag.OrdonnancesEnCours != null && ViewBag.OrdonnancesEnCours.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Médecin</th>
+                        <th>Médicaments</th>
+                        <th>Date de fin</th>
+                        <th>Jours restants</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ordonnance in ViewBag.OrdonnancesEnCours)
+                    {
+                        var joursRestants = (ordonnance.Date_fin - DateTime.Now.Date).Days;
+                        <tr>
+                            <td>@ordonnance.Patient.Nom_p @ordonnance.Patient.Prenom_p</td>
+                            <td>Dr. @ordonnance.Medecin.UserName</td>
+                            <td>
+                                @foreach (var med in ordonnance.Medicaments)
+                                {
+                                    @(med.Libelle_med + ", ")
+                                }
+                            </td>
+                            <td>@ordonnance.Date_fin.ToShortDateString()</td>
+                            <td>@joursRestants jours</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Aucune ordonnance en cours actuellement.</p>
+        }
+    </div>
+</div>

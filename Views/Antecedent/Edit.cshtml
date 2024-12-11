@@ -1,0 +1,17 @@
+﻿@model Antecedent
+
+<h1 class="text-center">Éditer Antécédents</h1>
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="AntecedentId" />
+    <div class="form-group">
+        <label asp-for="Libelle_a" class="control-label">Nom de l'Antécédents</label>
+        <input asp-for="Libelle_a" class="form-control" />
+        <span asp-validation-for="Libelle_a" class="text-danger"></span>
+    </div>
+</form>
+<a asp-action="Index" class="btn btn-secondary">Retour à la liste</a>
+<input type="submit" class="btn btn-danger" value="Enregistrer" />
+
+

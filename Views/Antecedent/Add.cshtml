@@ -1,0 +1,15 @@
+﻿@model Antecedent
+<br>
+<h1 class="text-center ">Créer un nouvel antécédent</h1>
+<br>
+<form asp-action="Add" asp-controller="Antecedent" method="post">
+
+    <div class="form-group">
+        <label asp-for="Libelle_a">Nom de l'antécédent</label>
+        <input asp-for="Libelle_a" class="form-control" />
+        <span asp-validation-for="Libelle_a" class="text-danger"></span>
+    </div>
+<br>
+    <a asp-action="Index" class="btn btn-secondary">Retour</a>
+    <input type="submit" value="Créer antécédent" class="btn btn-primary" />
+</form>

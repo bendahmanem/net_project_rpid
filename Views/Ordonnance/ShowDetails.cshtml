@@ -1,0 +1,47 @@
+﻿@model OrdonnanceEditViewModel
+<br>
+<h1 class="text-center ">Detail de l'ordonnace</h1>
+<br>
+
+<div class="form-group">
+    <label asp-for="Posologie" class="control-label">Posologie</label>
+    <input asp-for="Posologie" class="form-control" readonly />
+    <span asp-validation-for="Posologie" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Date_debut" class="control-label">Date de début</label>
+    <input asp-for="Date_debut" class="form-control" readonly />
+    <span asp-validation-for="Date_debut" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Date_fin" class="control-label">Date de fin</label>
+    <input asp-for="Date_fin" class="form-control" readonly />
+    <span asp-validation-for="Date_fin" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Instructions_specifique" class="control-label">Instructions spécifiques</label>
+    <input asp-for="Instructions_specifique" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label asp-for="Patient" class="control-label">Patient</label>
+    <input asp-for="Patient.Prenom_p" class="form-control" readonly />
+    <span asp-validation-for="Patient.Nom_p" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Medecin" class="control-label">Medecin</label>
+    <input asp-for="Medecin.UserName" class="form-control" readonly />
+    <span asp-validation-for="Medecin.UserName" class="text-danger"></span>
+</div>
+<br> <br>
+<h2 class="text-center ">Medicaments</h2>
+<div class="form-group">
+    <ul>
+        @foreach (var Medicament in Model.Medicaments)
+        {
+            <li>@Medicament.Libelle_med</li>
+        }
+    </ul>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Retour à la liste</a>
+</div>

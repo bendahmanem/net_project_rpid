@@ -1,0 +1,25 @@
+﻿@model Patient
+
+<h1>Êtes-vous sûr de vouloir supprimer ce patient ?</h1>
+<form asp-action="DeleteConfirmed" method="post">
+    <input asp-for="PatientId" type="hidden" />
+    <div class="form-group">
+        <label asp-for="Nom_p">Nom</label>
+        <input asp-for="Nom_p" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenom_p">Prénom</label>
+        <input asp-for="Prenom_p" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Sexe_p">Sexe</label>
+        <input asp-for="Sexe_p" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Num_secu">Numéro de sécurité</label>
+        <input asp-for="Num_secu" class="form-control" readonly />
+    </div>
+<br><br>
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    <input type="button" onclick="history.back()" value="Annuler" class="btn btn-secondary" />
+</form>
